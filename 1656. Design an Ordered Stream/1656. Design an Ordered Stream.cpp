@@ -1,23 +1,25 @@
 class OrderedStream {
-private:
-    vector<string> data;
-    int i,x;
 public:
+
+    string v[1000];
+    int curr=0;
+
     OrderedStream(int n) {
-        x=n;
-        data.resize(n,"");
-        i=1;
+
+
+        
     }
     
     vector<string> insert(int idKey, string value) {
-        vector<string> ans;
-        data[idKey-1] = value;
-        if(idKey == i){
-            for(int j=i-1; j<x; ++j){
-                if(!data[j].empty()) ans.push_back(data[j]),i++;
-                else break;
-            }
+        v[idKey-1]=value;
+        vector<string>ans;
+        while(v[curr]!=""){
+            ans.push_back(v[curr]);
+            curr++;
         }
         return ans;
+
+        
+        
     }
 };
